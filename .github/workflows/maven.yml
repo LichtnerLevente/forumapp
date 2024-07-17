@@ -10,14 +10,17 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ development ]
+    branches: [ main ]
   pull_request:
-    branches: [ development ]
+    branches: [ main ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, Windows-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@v4
