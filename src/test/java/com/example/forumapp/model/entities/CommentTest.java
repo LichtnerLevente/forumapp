@@ -9,7 +9,6 @@ import org.springframework.util.Assert;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@ActiveProfiles("test")
 class CommentTest {
 
     @BeforeEach
