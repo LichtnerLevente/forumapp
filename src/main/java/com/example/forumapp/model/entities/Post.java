@@ -1,10 +1,12 @@
 package com.example.forumapp.model.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+
+import java.util.Set;
+
+import static org.hibernate.annotations.CascadeType.MERGE;
 
 @Getter
 @Setter
@@ -21,4 +23,7 @@ public class Post {
     private String title;
     private String description;
 
+    @OneToMany
+    @Cascade(MERGE)
+    private Set<Comment> comments;
 }
