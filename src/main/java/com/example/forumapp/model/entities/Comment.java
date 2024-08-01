@@ -19,6 +19,9 @@ public class Comment {
     @GeneratedValue
     private long id;
     private String text;
+    @ManyToOne
+    @Cascade(MERGE)
+    private User author;
     @OneToOne
     @Cascade(MERGE)
     private Post post;

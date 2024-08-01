@@ -22,7 +22,9 @@ public class Post {
     private long id;
     private String title;
     private String description;
-
+    @ManyToOne
+    @Cascade(MERGE)
+    private User author;
     @OneToMany
     @Cascade(MERGE)
     private Set<Comment> comments;
