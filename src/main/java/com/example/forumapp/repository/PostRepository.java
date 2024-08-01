@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post, Long>{
     Post editPost(Post post, Long postId);
+    Post savePost(NewPostDTO post);
+
 }

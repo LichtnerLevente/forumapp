@@ -47,8 +47,8 @@ public class Controller {
 
     //create post/comment
     @GetMapping("./posts/create")
-    public boolean createPost(NewPostDTO post) {
-        return postService.createNewPost(post);
+    public void createPost(NewPostDTO post) {
+        postService.createNewPost(post);
     }
 
     //delete post/comment

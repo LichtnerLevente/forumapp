@@ -26,9 +26,8 @@ public class PostService {
         return postRepository.getReferenceById(postId);
     }
 
-    public boolean createNewPost(NewPostDTO post) {
-        //return postRepository.save(post);
-        return true;
+    public Post createNewPost(NewPostDTO post) {
+        return postRepository.savePost(post);
     }
 
     public void deletePostById(Long postId) {
