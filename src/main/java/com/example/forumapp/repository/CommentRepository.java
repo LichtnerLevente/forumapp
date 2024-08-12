@@ -6,7 +6,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-    Comment saveComment(NewCommentDTO newCommentDTO);
-
-    Comment editComment(Comment comment, Long commentId);
 }
