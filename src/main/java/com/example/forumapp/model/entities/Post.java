@@ -24,7 +24,7 @@ public class Post {
     private String description;
     @ManyToOne
     @Cascade(MERGE)
-    private User author;
+    private User user;
     @OneToMany
     @Cascade(MERGE)
     private Set<Comment> comments;

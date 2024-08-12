@@ -21,7 +21,7 @@ public class Comment {
     private String text;
     @ManyToOne
     @Cascade(MERGE)
-    private User author;
+    private User user;
     @OneToOne
     @Cascade(MERGE)
     private Post post;

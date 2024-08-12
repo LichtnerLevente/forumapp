@@ -41,7 +41,7 @@ public class Controller {
     }
 
     @PostMapping("./posts/create")
-    public void createPost(NewPostDTO post) {
+    public void createPost(Post post) {
         postService.createNewPost(post);
     }
 
@@ -65,7 +65,7 @@ public class Controller {
         return commentService.getCommentsByPostId(post_id);
     }
     @PostMapping("./comments/create")
-    public void createComment(NewCommentDTO comment) {
+    public void createComment(Comment comment) {
         commentService.createComment(comment);
     }
 
