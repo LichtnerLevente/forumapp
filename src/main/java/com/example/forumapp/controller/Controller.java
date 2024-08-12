@@ -4,9 +4,11 @@ import com.example.forumapp.model.DTO.NewCommentDTO;
 import com.example.forumapp.model.DTO.NewPostDTO;
 import com.example.forumapp.model.entities.Comment;
 import com.example.forumapp.model.entities.Post;
+import com.example.forumapp.model.entities.User;
 import com.example.forumapp.repository.PostRepository;
 import com.example.forumapp.service.CommentService;
 import com.example.forumapp.service.PostService;
+import com.example.forumapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +20,13 @@ public class Controller {
 
     private final PostService postService;
     private final CommentService commentService;
-    private final PostRepository postRepository;
+    private final UserService userService;
 
     @Autowired
-    public Controller(PostService postService, CommentService commentService, PostRepository postRepository) {
+    public Controller(PostService postService, CommentService commentService, PostRepository postRepository, UserService userService) {
         this.postService = postService;
         this.commentService = commentService;
-        this.postRepository = postRepository;
+        this.userService = userService;
     }
 
 
