@@ -28,7 +28,7 @@ public class UserService {
         return userRepository.save(user);
     }
     public User editUser(User user, Long id) {
-        return userRepository.save(user);
+        return userRepository.editUser(user);
     }
 
 

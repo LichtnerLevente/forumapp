@@ -101,4 +101,9 @@ public class Controller {
         userService.deleteUserById(user_id);
     }
 
+    @PutMapping("./users/{user_id}")
+    public User editUser(@RequestBody User user, @PathVariable Long user_id) {
+        return userService.editUser(user, user_id);
+    }
+
 }
