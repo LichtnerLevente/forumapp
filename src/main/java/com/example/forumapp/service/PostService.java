@@ -30,7 +30,11 @@ public class PostService {
         return postRepository.savePost(post);
     }
 
-    public void deletePostById(Long postId) {
+public void deletePostById(Long postId) {
         postRepository.deleteById(postId);
+    }
+
+    public Post editPost(Post post, Long postId) {
+        return postRepository.editPost(post, postId);
     }
 }
