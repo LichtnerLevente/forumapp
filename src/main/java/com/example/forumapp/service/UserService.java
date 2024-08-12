@@ -27,8 +27,13 @@ public class UserService {
     public User createUser(User user) {
         return userRepository.save(user);
     }
-    public User editUser(User user, Long id) {
-        return userRepository.editUser(user);
+    public User editUser(User editedUser, Long id) {
+        return userRepository.findById(id).map(user -> {
+            user.setEmail(editedUser.getEmail());
+            user.setUsername(editedUser.getUsername());
+
+            return userRepository.save(user);
+        }).orElseThrow();
     }
 
 

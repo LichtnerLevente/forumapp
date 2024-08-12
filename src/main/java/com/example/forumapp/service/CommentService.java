@@ -1,6 +1,5 @@
 package com.example.forumapp.service;
 
-import com.example.forumapp.model.DTO.NewCommentDTO;
 import com.example.forumapp.model.entities.Comment;
 import com.example.forumapp.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,23 +16,28 @@ public class CommentService {
     public CommentService(CommentRepository commentRepository) {
         this.commentRepository = commentRepository;
     }
+
     public Comment getCommentById(long id) {
         return commentRepository.findById(id).get();
     }
 
-    public Comment createComment(NewCommentDTO newCommentDTO) {
-        return commentRepository.saveComment(newCommentDTO);
+    public Comment createComment(Comment comment) {
+        return commentRepository.save(comment);
     }
 
     public List<Comment> getCommentsByPostId(Long postId) {
-        return  null;
+        return null;
     }
 
     public void deleteCommentById(Long commentId) {
         commentRepository.deleteById(commentId);
     }
 
-    public Comment editComment(Comment comment, Long commentId) {
-        return commentRepository.editComment(comment, commentId);
+    public Comment editComment(Comment editedComment, Long commentId) {
+        return commentRepository.findById(commentId).map(comment -> {
+                    comment.setText(editedComment.getText());
+                    return commentRepository.save(comment);
+                })
+                .orElseThrow();
     }
 }
